@@ -45,6 +45,10 @@
 extern "C" {
 #endif
 
+#if defined(PLAYDATE)
+	#include "playdate.h"
+#endif
+
 CP_EXPORT void cpMessage(const char *condition, const char *file, int line, int isError, int isHardError, const char *message, ...);
 #ifdef NDEBUG
 	#define	cpAssertWarn(__condition__, ...)

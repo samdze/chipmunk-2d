@@ -38,14 +38,24 @@ Howling Moon Software (my company) is available for contracting if you want to m
 
 h2. BUILDING:
 
-Mac OS X: There is an included Xcode project file for building the static library and demo application. Alternatively you could use the CMake files or the macstatic.command script inside the xcode/ directory to build a static lib and package up the headers for you.
+**Mac OS X**: There is an included Xcode project file for building the static library and demo application. Alternatively you could use the CMake files or the macstatic.command script inside the xcode/ directory to build a static lib and package up the headers for you.
 
-iPhone: A native Objective-C API is included. The Xcode project can build a static library with all the proper compiler settings. Alternatively, you can just run iphonestatic.command in the xcode/ directory.  It will build you a fat library compiled as release for the device and debug for the simulator. After running it, you can simply drop the Chipmunk-iOS directory into your iPhone project!
+**iPhone**: A native Objective-C API is included. The Xcode project can build a static library with all the proper compiler settings. Alternatively, you can just run iphonestatic.command in the xcode/ directory.  It will build you a fat library compiled as release for the device and debug for the simulator. After running it, you can simply drop the Chipmunk-iOS directory into your iPhone project!
 
-UNIXes: A forum user was kind enough to make a set of CMake files for Chipmunk. This will require you to have CMake installed. To build run 'cmake .' then 'make'. This should build a dynamic library, a static library, and the demo application. A number of people have had build errors on Ubuntu due to not having GLUT or libxmu installed.
+**UNIXes**: A forum user was kind enough to make a set of CMake files for Chipmunk. This will require you to have CMake installed. To build run 'cmake .' then 'make'. This should build a dynamic library, a static library, and the demo application. A number of people have had build errors on Ubuntu due to not having GLUT or libxmu installed.
 
-Windows: Visual Studio projects are included in the msvc/ directory. While I try to make sure the MSVC 10 project is up to date, I don't have MSVC 9 to keep that project updated regularly. It may not work. I'd appreciate a hand fixing it if that's the case.
+**Windows**: Visual Studio projects are included in the msvc/ directory. While I try to make sure the MSVC 10 project is up to date, I don't have MSVC 9 to keep that project updated regularly. It may not work. I'd appreciate a hand fixing it if that's the case.
 
+**Playdate**: Make sure to have the Playdate SDK installed and the PLAYDATE_SDK_PATH environment variable correctly set.
+To build a shared debug library for the Playdate simulator, run:
+
+bc. cmake --fresh -D BUILD_STATIC=OFF -D BUILD_SHARED=ON -D BUILD_DEMOS=OFF -D INSTALL_STATIC=OFF -D CMAKE_BUILD_TYPE=Debug -D PLAYDATE=ON .
+make
+
+To build a static release library for the Playdate device on macOS or Linux, run:
+
+bc. cmake --fresh -D BUILD_STATIC=ON -D BUILD_SHARED=OFF -D BUILD_DEMOS=OFF -D INSTALL_STATIC=OFF -D CMAKE_BUILD_TYPE=Release -D PLAYDATE=ON --toolchain $PLAYDATE_SDK_PATH/C_API/buildsupport/arm.cmake .
+make
 
 h2. GET UP TO DATE:
 

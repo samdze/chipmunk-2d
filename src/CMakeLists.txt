@@ -28,12 +28,12 @@ if(BUILD_SHARED)
       VERSION ${CHIPMUNK_VERSION})
   endif(NOT ANDROID)
   if(ANDROID OR UNIX)
-	  # need to explicitly link to the math library because the CMake/Android toolchains may not do it automatically
-	  target_link_libraries(chipmunk m)
+    # need to explicitly link to the math library because the CMake/Android toolchains may not do it automatically
+    target_link_libraries(chipmunk m)
   endif(ANDROID OR UNIX)
-  install(TARGETS chipmunk RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-                           LIBRARY DESTINATION ${LIB_INSTALL_DIR}
-                           ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
+  install(TARGETS chipmunk  RUNTIME DESTINATION ${BIN_INSTALL_DIR}
+                            LIBRARY DESTINATION ${LIB_INSTALL_DIR}
+                            ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
 endif(BUILD_SHARED)
 
 if(BUILD_STATIC)
@@ -51,6 +51,17 @@ if(BUILD_STATIC)
     install(TARGETS chipmunk_static ARCHIVE DESTINATION ${LIB_INSTALL_DIR})
   endif(INSTALL_STATIC)
 endif(BUILD_STATIC)
+
+if(PLAYDATE)
+  if(BUILD_STATIC)
+    set(PLAYDATE_LIB chipmunk_static)
+    include(../playdate/playdate.cmake)
+  endif()
+  if(BUILD_SHARED)
+    set(PLAYDATE_LIB chipmunk)
+    include(../playdate/playdate.cmake)
+  endif()
+endif()
 
 if(BUILD_SHARED OR INSTALL_STATIC)
   # FIXME: change to PUBLIC_HEADER to allow building frameworks
