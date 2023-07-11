@@ -27,7 +27,7 @@
 #include <math.h>
 
 #ifdef __APPLE__
-   #include "TargetConditionals.h"
+	#include "TargetConditionals.h"
 #endif
 
 // Use CGTypes by default on iOS and Mac.
@@ -45,10 +45,12 @@
 		#include <ApplicationServices/ApplicationServices.h>
 	#endif
 	
-	#if defined(__LP64__) && __LP64__
-		#define CP_USE_DOUBLES 1
-	#else
-		#define CP_USE_DOUBLES 0
+	#ifndef CP_USE_DOUBLES
+		#if defined(__LP64__) && __LP64__
+			#define CP_USE_DOUBLES 1
+		#else
+			#define CP_USE_DOUBLES 0
+		#endif
 	#endif
 #endif
 
