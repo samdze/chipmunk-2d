@@ -91,6 +91,12 @@ cpShapeSetBody(cpShape *shape, cpBody *body)
 	shape->body = body;
 }
 
+cpShapeType
+cpShapeGetType(const cpShape *shape)
+{
+	return shape->klass->type;
+}
+
 cpFloat cpShapeGetMass(cpShape *shape){ return shape->massInfo.m; }
 
 void
