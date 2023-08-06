@@ -588,7 +588,7 @@ static cpSpatialIndexClass klass = {
 	(cpSpatialIndexSegmentQueryImpl)cpSpaceHashSegmentQuery,
 };
 
-static inline cpSpatialIndexClass *Klass(){return &klass;}
+static inline cpSpatialIndexClass *Klass(void){return &klass;}
 
 //MARK: Debug Drawing
 

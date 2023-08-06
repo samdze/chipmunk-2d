@@ -724,7 +724,7 @@ static cpSpatialIndexClass klass = {
 	(cpSpatialIndexSegmentQueryImpl)cpBBTreeSegmentQuery,
 };
 
-static inline cpSpatialIndexClass *Klass(){return &klass;}
+static inline cpSpatialIndexClass *Klass(void){return &klass;}
 
 
 //MARK: Tree Optimization

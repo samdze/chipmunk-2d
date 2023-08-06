@@ -72,7 +72,7 @@ cpBodyNew(cpFloat mass, cpFloat moment)
 }
 
 cpBody*
-cpBodyNewKinematic()
+cpBodyNewKinematic(void)
 {
 	cpBody *body = cpBodyNew(0.0f, 0.0f);
 	cpBodySetType(body, CP_BODY_TYPE_KINEMATIC);
@@ -81,7 +81,7 @@ cpBodyNewKinematic()
 }
 
 cpBody*
-cpBodyNewStatic()
+cpBodyNewStatic(void)
 {
 	cpBody *body = cpBodyNew(0.0f, 0.0f);
 	cpBodySetType(body, CP_BODY_TYPE_STATIC);

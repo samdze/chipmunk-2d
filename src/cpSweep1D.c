@@ -250,5 +250,5 @@ static cpSpatialIndexClass klass = {
 	(cpSpatialIndexSegmentQueryImpl)cpSweep1DSegmentQuery,
 };
 
-static inline cpSpatialIndexClass *Klass(){return &klass;}
+static inline cpSpatialIndexClass *Klass(void){return &klass;}
 
