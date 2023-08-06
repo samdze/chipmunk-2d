@@ -186,7 +186,7 @@ DouglasPeucker(
 	cpFloat d = cpvdot(n, a);
 	
 	for(int i=Next(start, length); i!=end; i=Next(i, length)){
-		cpFloat dist = fabs(cpvdot(n, verts[i]) - d);
+		cpFloat dist = cpfabs(cpvdot(n, verts[i]) - d);
 		
 		if(dist > max){
 			max = dist;
