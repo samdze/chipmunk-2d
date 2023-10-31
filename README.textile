@@ -47,6 +47,8 @@ h2. BUILDING:
 **Windows**: Visual Studio projects are included in the msvc/ directory. While I try to make sure the MSVC 10 project is up to date, I don't have MSVC 9 to keep that project updated regularly. It may not work. I'd appreciate a hand fixing it if that's the case.
 
 **Playdate**: Make sure to have the Playdate SDK installed and the PLAYDATE_SDK_PATH environment variable correctly set.
+You might have to also install the required arm toolchain, depending on your OS.
+
 To build a shared debug library for the Playdate simulator, run:
 
 bc. cmake --fresh -D BUILD_STATIC=OFF -D BUILD_SHARED=ON -D BUILD_DEMOS=OFF -D INSTALL_STATIC=OFF -D CMAKE_BUILD_TYPE=Debug -D PLAYDATE=ON .
