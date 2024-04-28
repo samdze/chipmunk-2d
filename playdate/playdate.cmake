@@ -70,7 +70,7 @@ else ()
 		target_compile_options(${PLAYDATE_LIB} PUBLIC /W3)
 		target_compile_options(${PLAYDATE_LIB} PUBLIC $<$<CONFIG:DEBUG>:/Od>)
 	else()
-		target_compile_options(${PLAYDATE_LIB} PUBLIC -Wall -Wstrict-prototypes -Wno-unknown-pragmas -Wdouble-promotion)
+		target_compile_options(${PLAYDATE_LIB} PUBLIC -Wall -Wstrict-prototypes -Wno-unknown-pragmas -Wdouble-promotion -fPIC)
 		target_compile_options(${PLAYDATE_LIB} PUBLIC $<$<CONFIG:DEBUG>:-ggdb -O0>)
 	endif()
 
