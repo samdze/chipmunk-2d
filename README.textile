@@ -51,7 +51,7 @@ You might have to also install the required arm toolchain, depending on your OS.
 
 To build a shared debug library for the Playdate simulator, run:
 
-bc. cmake --fresh -D BUILD_STATIC=OFF -D BUILD_SHARED=ON -D BUILD_DEMOS=OFF -D INSTALL_STATIC=OFF -D CMAKE_BUILD_TYPE=Debug -D PLAYDATE=ON .
+bc. cmake --fresh -D BUILD_STATIC=ON -D BUILD_SHARED=OFF -D BUILD_DEMOS=OFF -D INSTALL_STATIC=OFF -D CMAKE_BUILD_TYPE=Debug -D PLAYDATE=ON .
 make
 
 To build a static release library for the Playdate device on macOS or Linux, run:
